@@ -1,0 +1,42 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/task" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{task._id}}">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Name" value="{{task.name}}">
+        <div class="text-danger">
+            {{task.NameError}}
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Deadline:D</label>
+            <input type="number" class="form-control" name="Deadline_D" placeholder="D" value="{{task.Deadline_D}}" min="0" step="0.01">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Period:T</label>
+            <input type="number" class="form-control" name="Period_T" placeholder="T" value="{{task.Period_T}}" min="0" step="0.01">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Segment number:N</label>
+            <input type="number" class="form-control" name="Segment_number_N" placeholder="Odd number" value="{{task.Segment_number_N}}"min="1" step="2">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Execution time</label>
+        <input type="text" class="form-control" name="Execution_time" placeholder="{C_1, …, C_N}" value="{{task.Execution_time}}">
+    </div>
+
+    <div class="form-group">
+        <label>Execution time of parrallels sgmts</label>
+        <input type="text" class="form-control" name="Execution_time_parallel_sgts" placeholder="{G_2, …, G_N-1}" value="{{task.Execution_time_parallel_sgts}}">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/task/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>

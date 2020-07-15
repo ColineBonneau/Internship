@@ -1,0 +1,22 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/radiation" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{radiation._id}}">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Name" value="{{radiation.name}}">
+        <div class="text-danger">
+            {{radiation.NameError}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Radiation Type</label>
+        <input type="text" class="form-control" name="RadiationType_V" placeholder="Radiation Type" value="{{radiation.RadiationType_V}}">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/radiation/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>

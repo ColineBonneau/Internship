@@ -1,0 +1,173 @@
+ <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>
+      
+        Order history &middot; 
+      
+    </title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet" media='screen' charset='utf-8'>
+    <link rel="stylesheet" href='/css/toolkit-light.css' media='screen' charset='utf-8'>  
+    
+    <link href="/css/application.css" rel="stylesheet" media='screen' charset='utf-8'>
+
+    <style>
+      /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+      /* this chunk of css is not part of the toolkit :) */
+      body {
+        width: 1px;
+        min-width: 100%;
+        *width: 100%;
+      }
+    </style>
+  </head>
+
+
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 sidebar">
+        <nav class="sidebar-nav">
+          <div class="sidebar-header">
+            <button class="nav-toggler nav-toggler-md sidebar-toggler" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
+              <span class="sr-only">Toggle nav</span>
+            </button>
+            <a class="sidebar-brand img-responsive" href="/htmlPages/index.html">
+              <span class="icon icon-leaf sidebar-brand-icon"></span>
+            </a>
+          </div>
+
+          <div class="collapse nav-toggleable-md" id="nav-toggleable-md">
+            <form class="sidebar-form">
+              <input class="form-control" type="text" placeholder="Search...">
+              <button type="submit" class="btn-link">
+                <span class="icon icon-magnifying-glass"></span>
+              </button>
+            </form>
+            <ul class="nav nav-pills nav-stacked flex-column">
+              <li class="nav-header">Dashboards</li>
+              <li class="nav-item">
+                <a class="nav-link " href="/htmlPages/overview.html">Overview</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/task/list">Task Set</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/radiation/list">Radiation Effect</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/simu/list">Simulation</a>
+              </li>
+
+            </ul>
+            <hr class="visible-xs mt-3">
+          </div>
+        </nav>
+      </div>
+      <div class="col-md-9 content">
+        <div class="dashhead">
+  <div class="dashhead-titles">
+    <h6 class="dashhead-subtitle">Dashboards</h6>
+    <h2 class="dashhead-title">Order history</h2>
+  </div>
+
+  <div class="btn-toolbar dashhead-toolbar">
+    <div class="btn-toolbar-item input-with-icon">
+      <input type="text" value="01/01/15 - 01/08/15" class="form-control" data-provide="datepicker">
+      <span class="icon icon-calendar"></span>
+    </div>
+  </div>
+</div>
+
+<div class="flextable table-actions">
+  <div class="flextable-item flextable-primary">
+    <div class="btn-toolbar-item input-with-icon">
+      <input type="text" class="form-control input-block" placeholder="Search orders">
+      <span class="icon icon-magnifying-glass"></span>
+    </div>
+  </div>
+  <div class="flextable-item">
+    <div class="btn-group">
+    </div>
+  </div>
+</div>
+
+<div>
+    <h3><a class="btn btn-secondary" href="/task"><i class="fa fa-plus"></i> Create New</a> Tasks List</h3>
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Deadline_D</th>
+                <th>Period_T</th>
+                <th>Segment Number _N</th>
+                <th>Execution time</th>
+                <th>TimOfParrallelsSgts</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each list}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.Deadline_D}}</td>
+                <td>{{this.Period_T}}</td>
+                <td>{{this.Segment_number_N}}</td>
+                <td>{{this.Execution_time}}</td>
+                <td>{{this.Execution_time_parallel_sgts}}</td>
+                <td>
+                    <a href="/task/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                    <a href="/task/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');" ><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>   
+</div>
+
+<div class="text-center">
+  <nav>
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">4</a></li>
+      <li class="page-item"><a class="page-link" href="#">5</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/chart.js"></script>
+<script src="/js/tablesorter.min.js"></script>
+<script src="/js/toolkit.js"></script>
+<script src="/js/application.js"></script>
+<script>
+    // execute/clear BS loaders for docs
+    $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
+</script>
+</body>
+
+
