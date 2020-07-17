@@ -1,4 +1,4 @@
-const Scheduling_Policy = require('../models/Scheduling_policy')
+/*const Scheduling_Policy = require('../models/Scheduling_policy')
 
 // CREATE A schedulingPolicy
 //POST 
@@ -130,4 +130,4 @@ module.exports ={
     deleteSchedul,
     getSchedulById,
     getScheduls,
-}
+}*/
